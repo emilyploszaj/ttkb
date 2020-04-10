@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "ttkb",
+	"version": "1.0.0",
+
+	"name": "TTKB",
+	"description": "Adds random useful things",
+	"authors": [
+		"Emi"
+	],
+	"contact": {
+		"homepage": "https://emi.dev/",
+		"sources": "https://github.com/emilyploszaj/ttkb"
+	},
+
+	"license": "MIT-1.0",
+	"icon": "assets/ttkb/icon.png",
+
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"dev.emi.ttkb.TTKBMain"
+		],
+		"client": [
+			"dev.emi.ttkb.TTKBClient"
+		]
+	},
+	"mixins": [
+		"ttkb.mixins.json"
+	],
+
+	"depends": {
+		"fabricloader": ">=0.4.0",
+		"fabric": "*"
+	},
+	"suggests": {
+		"flamingo": "*"
+	}
+}

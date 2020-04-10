@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"OEO",
+		"OHO",
+		" O "
+	],
+	"key": {
+		"O": {
+			"item": "minecraft:obsidian"
+		},
+		"H": {
+			"item": "minecraft:hopper"
+		},
+		"E": {
+			"item": "minecraft:ender_eye"
+		}
+	},
+	"result": {
+		"item": "ttkb:ender_hopper"
+	}
+}

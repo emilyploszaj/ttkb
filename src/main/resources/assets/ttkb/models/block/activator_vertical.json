@@ -1,0 +1,7 @@
+{
+	"parent": "block/orientable_vertical",
+	"textures": {
+		"front": "ttkb:block/activator_front_vertical",
+		"side": "block/furnace_top"
+	}
+}

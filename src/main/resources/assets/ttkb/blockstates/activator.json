@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"facing=down":  { "model": "ttkb:block/activator_vertical", "x": 180 },
+		"facing=up":    { "model": "ttkb:block/activator_vertical" },
+		"facing=north": { "model": "ttkb:block/activator" },
+		"facing=south": { "model": "ttkb:block/activator", "y": 180 },
+		"facing=west":  { "model": "ttkb:block/activator", "y": 270 },
+		"facing=east":  { "model": "ttkb:block/activator", "y": 90 }
+	}
+}

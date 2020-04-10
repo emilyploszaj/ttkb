@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"###",
+		"#B#",
+		"#R#"
+	],
+	"key": {
+		"R": {
+			"item": "minecraft:redstone"
+		},
+		"#": {
+			"item": "minecraft:cobblestone"
+		},
+		"B": {
+			"tag": "minecraft:buttons"
+		}
+	},
+	"result": {
+		"item": "ttkb:activator"
+	}
+}

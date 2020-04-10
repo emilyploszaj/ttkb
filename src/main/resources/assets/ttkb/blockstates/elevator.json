@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "filled=false": { "model": "ttkb:block/empty_elevator" },
+        "filled=true": { "model": "ttkb:block/elevator" }
+    }
+}
