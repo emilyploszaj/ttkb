@@ -15,11 +15,11 @@ public class ElevatorBlockEntity extends BlockEntity implements BlockEntityClien
     }
 
     @Override
-	public void fromTag(CompoundTag tag) {
-        super.fromTag(tag);
+	public void fromTag(BlockState state, CompoundTag tag) {
+        super.fromTag(state, tag);
         if (tag.contains("blockState")) {
-			CompoundTag state = tag.getCompound("blockState");
-			cosmeticBlock = NbtHelper.toBlockState(state);
+			CompoundTag bs = tag.getCompound("blockState");
+			cosmeticBlock = NbtHelper.toBlockState(bs);
         }
 	}
 	

@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 public class ActivatorPlayer extends PlayerEntity {
 
 	public ActivatorPlayer(World world) {
-		super(world, new GameProfile(UUID.randomUUID(), "ActivatorPlayer"));
+		super(world, new BlockPos(0, 0, 0), new GameProfile(UUID.randomUUID(), "ActivatorPlayer"));
 	}
 
 	public void setStatus(World world, BlockPos pos) {

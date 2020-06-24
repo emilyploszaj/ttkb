@@ -16,8 +16,8 @@ import net.minecraft.client.input.Input;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.server.network.packet.CustomPayloadC2SPacket;
-import net.minecraft.util.PacketByteBuf;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.network.packet.c2s.play.CustomPayloadC2SPacket;
 
 /**
  * Captures movement of players and sends elevator packets when able

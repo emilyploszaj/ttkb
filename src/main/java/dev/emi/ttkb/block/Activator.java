@@ -45,7 +45,7 @@ public class Activator extends DispenserBlock {
 			ActionResult result = world.getBlockState(pos).onUse(world, fakePlayer, fakePlayer.getActiveHand(),
 				new BlockHitResult(new Vec3d(dir.getOffsetX(), dir.getOffsetY(), dir.getOffsetZ()), dir, pos, false));
 			if (result != ActionResult.SUCCESS) {
-				world.playLevelEvent(1001, original, 0);
+				world.syncWorldEvent(1001, original, 0);
 			}
 		} catch(Exception e) {
 			// :)

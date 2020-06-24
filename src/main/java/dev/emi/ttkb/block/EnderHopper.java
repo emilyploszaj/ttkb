@@ -9,10 +9,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.block.TransparentBlock;
 import net.minecraft.block.Waterloggable;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.EntityContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -43,7 +43,7 @@ public class EnderHopper extends TransparentBlock implements BlockEntityProvider
 
 	public BlockState getPlacementState(ItemPlacementContext context) {
 		FluidState state = context.getWorld().getFluidState(context.getBlockPos());
-		boolean b = state.matches(FluidTags.WATER) && state.getLevel() == 8;
+		boolean b = state.isIn(FluidTags.WATER) && state.getLevel() == 8;
 		return (BlockState) super.getPlacementState(context).with(WATERLOGGED, b);
 	}
 
@@ -53,7 +53,7 @@ public class EnderHopper extends TransparentBlock implements BlockEntityProvider
 		} else {
 			BlockEntity be = world.getBlockEntity(pos);
 			if (be instanceof EnderHopperBlockEntity) {
-				player.openContainer((EnderHopperBlockEntity) be);
+				player.openHandledScreen((EnderHopperBlockEntity) be);
 			}
 
 			return ActionResult.SUCCESS;
@@ -76,14 +76,14 @@ public class EnderHopper extends TransparentBlock implements BlockEntityProvider
  
 	}
 
-	public void onBlockRemoved(BlockState state, World world, BlockPos pos, BlockState newState, boolean b) {
+	public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean b) {
 		if (state.getBlock() != newState.getBlock()) {
 		   BlockEntity be = world.getBlockEntity(pos);
 		   if (be instanceof EnderHopperBlockEntity) {
 			  ItemScatterer.spawn(world, pos, (Inventory) be);
-			  world.updateHorizontalAdjacent(pos, this);
+			  world.updateComparators(pos, this);
 		   }
-		   super.onBlockRemoved(state, world, pos, newState, b);
+		   super.onStateReplaced(state, world, pos, newState, b);
 		}
 	}
 
@@ -96,12 +96,12 @@ public class EnderHopper extends TransparentBlock implements BlockEntityProvider
 	}
 
 	@Override
-	public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
+	public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
 		return SHAPE;
 	}
 
 	@Override
-	public VoxelShape getCollisionShape(BlockState state, BlockView view, BlockPos pos, EntityContext context) {
+	public VoxelShape getCollisionShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
 		return SHAPE;
 	}
 

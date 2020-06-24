@@ -42,8 +42,8 @@ public class TTKBMain implements ModInitializer {
 					for (int i = 1; i < 32; i++) {
 						BlockPos newPos = pos.up(i);
 						if (world.getBlockState(newPos).getBlock() instanceof Elevator &&
-								!world.getBlockState(newPos.up(1)).getBlock().isOpaque(world.getBlockState(newPos.up(1))) &&
-								!world.getBlockState(newPos.up(2)).getBlock().isOpaque(world.getBlockState(newPos.up(2)))) {
+								!world.getBlockState(newPos.up(1)).isOpaque() &&
+								!world.getBlockState(newPos.up(2)).isOpaque()) {
 							player.teleport(player.getPos().x, player.getPos().y + i, player.getPos().z);
 							break;
 						}
@@ -52,8 +52,8 @@ public class TTKBMain implements ModInitializer {
 					for (int i = 1; i < 32; i++) {
 						BlockPos newPos = pos.down(i);
 						if (world.getBlockState(newPos).getBlock() instanceof Elevator &&
-								!world.getBlockState(newPos.up(1)).getBlock().isOpaque(world.getBlockState(newPos.up(1))) &&
-								!world.getBlockState(newPos.up(2)).getBlock().isOpaque(world.getBlockState(newPos.up(2)))) {
+								!world.getBlockState(newPos.up(1)).isOpaque() &&
+								!world.getBlockState(newPos.up(2)).isOpaque()) {
 							player.teleport(player.getPos().x, player.getPos().y - i, player.getPos().z);
 							break;
 						}

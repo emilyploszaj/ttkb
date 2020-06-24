@@ -1,7 +1,7 @@
 package dev.emi.ttkb.block;
 
 import dev.emi.ttkb.block.entity.ElevatorBlockEntity;
-import net.fabricmc.fabric.api.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
@@ -25,7 +25,7 @@ public class Elevator extends TransparentBlock implements BlockEntityProvider {
     public static final BooleanProperty FILLED = BooleanProperty.of("filled");
 
     public Elevator() {
-        super(FabricBlockSettings.copy(Blocks.WHITE_WOOL).nonOpaque().build());
+        super(FabricBlockSettings.copy(Blocks.WHITE_WOOL).nonOpaque());
         setDefaultState(getStateManager().getDefaultState().with(FILLED, false));
     }
 
@@ -35,7 +35,7 @@ public class Elevator extends TransparentBlock implements BlockEntityProvider {
             BlockItem item = (BlockItem) player.getStackInHand(hand).getItem();
 			Block block = item.getBlock();
 			BlockState placeState = block.getPlacementState(new ItemPlacementContext(new ItemUsageContext(player, hand, hit)));
-            if (placeState.isSimpleFullBlock(world, pos)) {
+            if (placeState.isSolidBlock(world, pos)) {
                 world.setBlockState(pos, getDefaultState().with(FILLED, true));
                 ElevatorBlockEntity be = (ElevatorBlockEntity) world.getBlockEntity(pos);
                 be.cosmeticBlock = placeState;
