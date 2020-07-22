@@ -6,7 +6,7 @@
             "entries": [
                 {
                     "type": "minecraft:item",
-                    "name": "ttkb:empty_elevator"
+                    "name": "ttkb:elevator"
                 }
             ],
             "conditions": [
